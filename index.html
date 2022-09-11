@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<title>Задание 1</title>
+</head>
+<body>  <h1 id="head1">Ссылки</h2>
+    <ol>
+        <li><a href='http://example.com'>Абсолютная гиперссылка на главную страницу сайта example.com</a></li>
+        <li><a href='https://example.com'>Абсолютная на главную сайта example.com в протоколе https</a></li>
+        <li><a href='ftp://en.wikipedia.org/wiki/Fair_use'>Ссылка на файл на сервере FTP без авторизации</a></li>
+        <li><a href='https://www.kubsu.ru/ru/user/54275'>Ссылка на файл на сервере FTP с авторизацией</a></li>
+        <li><a href='https://en.wikipedia.org/wiki/Fair_use#Fair_Use_Week'>Ссылка на фрагмент страницы некоторого сайта</a></li>
+        <li><a href='#top'> Ссылка на фрагмент текущей страницы</a></li>
+        <li><a href='https://en.wikipedia.org/wiki/Fair_use?val1=1&val2=2'>Ссылка с двумя параметрами в URL</a></li>
+        <li> Список ссылок основной навигации сайта с подписями title
+            <p>
+                <li1><a href="#head1" title="Сылки">Ссылки</a></li1></br>
+                <li1><a href="#head2" title="Форма">Форма</a></li1>
+            </p>
+        </li>
+        <li><a>Ссылка без href</a></li>
+        <li><a href=''>Ссылка с пустым href</a></li>
+        <li><a href='https://en.wikipedia.org/wiki/Fair_use' rel="nofollow">Ссылка, по которой запрещен переход поисковикам</a></li>
+        <li><a href='https://en.wikipedia.org/wiki/Fair_use' rel="nofollow"><noindex>Запрещенная для индексации поисковиками</noindex></a></li>
+        <li><p>Контекстная в тексте абзаца</p><p><a href='https://en.wikipedia.org/wiki/Fair_use'>Ссылка</a></p></li>
+        <li> <p>Ссылка-изображение</p><p><a href='https://en.wikipedia.org/wiki/Fair_use'><img src='image.png' width="200" 
+            height="100"></a></p></li>
+        <li> <p>Ссылка из прямоугольных и круглых областей картинки (HTML-тег map)</p><p><img src='image.png' width="200" 
+            height="100" usemap="#map"></a>
+            <p><map name="map"> <area shape="circle" coords="100,100, 100"
+                href='https://en.wikipedia.org/wiki/Fair_use'>
+              </map></p>
+        </p></li>
+        <li><a href='page'>Относительная на страницу в текущем каталоге</a></li>
+        <li> <a href='./about/page'>Относительная на страницу в каталоге about</a></li>
+        <li><a href='../page'>Относительная на страницу в каталоге уровнем выше текущего</a></li>
+        <li><a href='../../page'>Относительная на страницу в каталоге двумя уровнями выше</a></li>
+        <li><a href='/'>Сокращенная на главную</a></li>
+        <li><a href='/about/page'>Сокращенная ссылка на внутреннюю.</a></li>
+       </ol> 
+
+
+    <h2 id="head2">Форма</h2> 
+
+
+    <label>
+      Имя:<br />
+      <input name="field-name"
+      placeholder="Введите ваше имя" />
+    </label><br />
+
+    <label>
+      email:<br />
+      <input name="field-email"
+        type="email"
+        placeholder="Введите вашу почту" />
+    </label><br />
+
+    <label>
+      Дата рождения:<br />
+      <input name="field-date"
+        value="2022-01-01"
+        type="date" />
+    </label><br />
+
+   
+    Пол:<br />
+    <label><input type="radio" checked="checked"
+      name="radio-group-1" value="Значение1" />
+      М</label>
+    <label><input type="radio"
+      name="radio-group-1" value="Значение2" />
+      Ж</label><br />
+    
+    Количество конечностей:<br />
+      <label><input type="radio" checked="checked"
+        name="radio-group-2" value="Значение1" />
+        4</label>
+      <label><input type="radio"
+        name="radio-group-2" value="Значение2" />
+        3</label>
+      <label><input type="radio"
+        name="radio-group-2" value="Значение3" />
+        2</label>
+      <label><input type="radio"
+        name="radio-group-2" value="Значение4" />
+        1</label><br />
+
+    Сверхспособности:<label>
+            <br />
+            <select name="field-name-3[]"
+              multiple="multiple">
+              <option value="Значение1">Бессмертие</option>
+              <option value="Значение2">Прохождение сквозь стены</option>
+              <option value="Значение3">Левитация</option>
+            </select>
+          </label><br />
+
+    <label>
+    Биография:<br />
+    <textarea name="field-name-2">...</textarea>
+    </label><br />
+      
+      
+    С контрактом ознакомлен (а):<br />
+    <label><input type="checkbox" checked="checked"
+      name="check-1" />
+      Да</label><br />
+
+    Отправить:
+    <input type="submit" value="Отправить" />
+  </form>
+
+</body>
+</html>
