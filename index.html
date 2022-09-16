@@ -4,7 +4,7 @@
 <head>
 <title>Задание 1</title>
 </head>
-<body>  <h1 id="head1">Ссылки</h2>
+<body>  <h1 id="head1">Ссылки</h1>
     <ol>
         <li><a href='http://example.com'>Абсолютная гиперссылка на главную страницу сайта example.com</a></li>
         <li><a href='https://example.com'>Абсолютная на главную сайта example.com в протоколе https</a></li>
@@ -13,21 +13,21 @@
         <li><a href='https://en.wikipedia.org/wiki/Fair_use#Fair_Use_Week'>Ссылка на фрагмент страницы некоторого сайта</a></li>
         <li><a href='#top'> Ссылка на фрагмент текущей страницы</a></li>
         <li><a href='https://en.wikipedia.org/wiki/Fair_use?val1=1&val2=2'>Ссылка с двумя параметрами в URL</a></li>
-        <li> Список ссылок основной навигации сайта с подписями title
-            <p>
-                <li1><a href="#head1" title="Сылки">Ссылки</a></li1></br>
-                <li1><a href="#head2" title="Форма">Форма</a></li1>
-            </p>
+        <li> Список ссылок основной навигации сайта с подписями title <br />
+            
+                <li1><a href="#head1" title="Сылки">Ссылки</a></li1><br />
+                <li2><a href="#head2" title="Форма">Форма</a></li2>
+            
         </li>
         <li><a>Ссылка без href</a></li>
         <li><a href=''>Ссылка с пустым href</a></li>
         <li><a href='https://en.wikipedia.org/wiki/Fair_use' rel="nofollow">Ссылка, по которой запрещен переход поисковикам</a></li>
-        <li><a href='https://en.wikipedia.org/wiki/Fair_use' rel="nofollow"><noindex>Запрещенная для индексации поисковиками</noindex></a></li>
+        <li><a href='https://en.wikipedia.org/wiki/Fair_use' rel="nofollow"><!--noindex-->Запрещенная для индексации поисковиками<!--/noindex--></a></li>
         <li><p>Контекстная в тексте абзаца</p><p><a href='https://en.wikipedia.org/wiki/Fair_use'>Ссылка</a></p></li>
         <li> <p>Ссылка-изображение</p><p><a href='https://en.wikipedia.org/wiki/Fair_use'><img src='image.png' width="200" 
-            height="100"></a></p></li>
+            height="100" alt="Ссылка"></a></p></li>
         <li> <p>Ссылка из прямоугольных и круглых областей картинки (HTML-тег map)</p><p><img src='image.png' width="200" 
-            height="100" usemap="#map"></a>
+            height="100" usemap="#map" alt="Ссылка">
             <p><map name="map"> <area shape="circle" coords="100,100, 100"
                 href='https://en.wikipedia.org/wiki/Fair_use'>
               </map></p>
@@ -109,7 +109,7 @@
 
     Отправить:
     <input type="submit" value="Отправить" />
-  </form>
+
 
 </body>
 </html>
