@@ -39,7 +39,7 @@ textarea, input, select{
 }
 
 
-@media screen and (min-width: 481px){
+@media screen and (min-width: 1101px){
     h1, 
     h2, h3 {
     color: #008080;
