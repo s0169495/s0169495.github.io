@@ -1,5 +1,5 @@
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 1000px) {
  
   h1, 
   h2, h3 {
@@ -32,7 +32,7 @@
 }
 
 
-@media screen and (min-width: 481px){
+@media screen and (min-width: 1001px){
     h1, 
     h2, h3 {
     color: #008080;
