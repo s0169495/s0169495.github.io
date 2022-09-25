@@ -29,6 +29,7 @@
   }
   table {
       border: 3px solid grey;
+       order: 1;
   }
   nav{
       margin-left: 5px;
