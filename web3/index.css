@@ -18,9 +18,6 @@
 textarea, input, select{
     size: 300%;
 }
-  .item-2{
-     order: 1;
-  }
   div1{
       margin-left: 5px;
   }
@@ -34,7 +31,6 @@ textarea, input, select{
   }
   table {
       border: 3px solid grey;
-      order: 1;
   }
   nav{
       margin-left: 5px;
