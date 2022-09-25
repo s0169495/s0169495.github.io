@@ -1,3 +1,4 @@
+
   @media screen and (max-width: 480px) {
   #main-aside-wrapper {
     flex-direction: row;
@@ -15,8 +16,7 @@
     order: 1;
   }
 }
-
-
+@media screen and (min-width: 481px){
     h1, 
     h2, h3 {
     color: #008080;
@@ -33,6 +33,19 @@
     div1{
         margin-left: 5px;
     }
+    body{
+        background-color: #AFEEEE;
+       } 
+    h1, ol, h3, form, table{ 
+        margin-left: 600px;
+    }
+    table {
+        border: 3px solid grey;
+    }
+    nav{
+        margin-left: 700px;
+    }}
+   
     body{
         background-color: #AFEEEE;
        } 
