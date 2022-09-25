@@ -19,6 +19,9 @@
   body{
       background-color: #AFEEEE;
      } 
+  textarea, input, select{
+    size: 300%;
+}
   h1, ol, h3, form, table{ 
       margin-left: 5px;
       width:100%;
