@@ -23,7 +23,7 @@
   }
 
 textarea, input, select{
-    size: 300%;
+   width:100%;
 }
   div1{
       margin-left: 5px;
