@@ -22,6 +22,7 @@
      } 
   h1, ol, h3, form, table{ 
       margin-left: 5px;
+      width:100%;
   }
   table {
       border: 3px solid grey;
