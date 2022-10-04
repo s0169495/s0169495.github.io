@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<title>Задание</title>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<link rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+
+<body> 
+   <header> 
+    <div class="container">
+  
+      <div class = "flex-name"><img src="logo.png" width="200" height="200" alt=" "/>
+        <div class="mt-5"> <dev>Задание 4</dev></div> 
+      <link rel="stylesheet" href="index.css">
+    </div> </div> 
+  
+</header>   
+<div class="container">
+  <div class="row">
+    <div class="menu">  <div class="col-md-10 col-12"><a href="#head1">Список гиперссылок</a></div>
+      <div class="col-md-11 col-12"><a href="#head2">Таблица</a>  </div>
+        <div class="col-md-12 col-12"><a href="#head3">Форма</a></div> </div> </div>   </div>  
+ 
+  <div class="container">
+   
+    <div class="row">
+
+      <div class="col-12 p-0 m-0">  <h1 id="head1">Ссылки</h1>
+    <ol>
+        <li><a href='http://example.com'>Абсолютная гиперссылка на главную страницу сайта example.com</a></li>
+        <li><a href='https://example.com'>Абсолютная на главную сайта example.com в протоколе https</a></li>
+        <li><a href='ftp://radio.ru'>Ссылка на файл на сервере FTP без авторизации</a></li>
+        <li><a href='ftp://user:123@ftp.anyhost.ru'>Ссылка на файл на сервере FTP с авторизацией</a></li>
+        <li><a href='https://en.wikipedia.org/wiki/Fair_use#Fair_Use_Week'>Ссылка на фрагмент страницы некоторого сайта</a></li>
+        <li><a href='#top'> Ссылка на фрагмент текущей страницы</a></li>
+        <li><a href='https://en.wikipedia.org/wiki/Fair_use?val1=1&val2=2'>Ссылка с двумя параметрами в URL</a></li>
+        <li> Список ссылок основной навигации сайта с подписями title <br />
+            
+                <a href="#head1" title="Ссылки">Ссылки</a><br />
+                <a href="#head3" title="Форма">Форма</a>
+            
+        </li>
+        <li><a>Ссылка без href</a></li>
+        <li><a href=''>Ссылка с пустым href</a></li>
+        <li><a href='https://en.wikipedia.org/wiki/Fair_use' rel="nofollow">Ссылка, по которой запрещен переход поисковикам</a></li>
+        <li><a href='https://en.wikipedia.org/wiki/Fair_use' rel="nofollow"><noindex>Запрещенная для индексации поисковиками</noindex></a></li>
+        <li><p>Контекстная в тексте абзаца</p><p><a href='https://en.wikipedia.org/wiki/Fair_use'>Ссылка</a></p></li>
+        <li> <p>Ссылка-изображение</p><p><a href='https://en.wikipedia.org/wiki/Fair_use'><img src='image.png' width="200" 
+            height="100" alt="Ссылка"></a></p></li>
+        <li> <p>Ссылка из прямоугольных и круглых областей картинки (HTML-тег map)</p><img src='image.png' width="200" 
+          height="100" usemap="#map" alt="Ссылка">
+            <map name="map"> <area shape="circle" coords="50,50,25"
+                href='https://en.wikipedia.org/wiki/Fair_use' alt="Ссылка">
+                <area shape="rect" coords="130,60,170,80" href='https://en.wikipedia.org/wiki/Fair_use' alt="Ссылка">
+              </map>
+        </li>
+        <li><a href='page'>Относительная на страницу в текущем каталоге</a></li>
+        <li> <a href='./about/page'>Относительная на страницу в каталоге about</a></li>
+        <li><a href='../page'>Относительная на страницу в каталоге уровнем выше текущего</a></li>
+        <li><a href='../../page'>Относительная на страницу в каталоге двумя уровнями выше</a></li>
+        <li><a href='/'>Сокращенная на главную</a></li>
+        <li><a href='/about/page'>Сокращенная ссылка на внутреннюю</a></li>
+       </ol> </div>
+
+          
+     
+      
+        <div class="col-12 order-md-2 p-0 m-0">  <h3 id="head3">Форма</h3> 
+    <form>
+     
+    <label>
+      Имя:<br />
+      <input name="field-name"
+      placeholder="Введите ваше имя" />
+    </label><br />
+
+    <label>
+      email:<br />
+      <input name="field-email"
+        type="email"
+        placeholder="Введите вашу почту" />
+    </label><br />
+
+    <label>
+      Дата рождения:<br />
+      <input name="field-date"
+        value="2022-01-01"
+        type="date" />
+    </label><br />
+
+   
+    Пол:<br />
+    <label><input type="radio" checked="checked"
+      name="radio-group-1" value="Значение1" />
+      М</label>
+    <label><input type="radio"
+      name="radio-group-1" value="Значение2" />
+      Ж</label><br />
+    
+    Количество конечностей:<br />
+      <label><input type="radio" checked="checked"
+        name="radio-group-2" value="Значение1" />
+        4</label>
+      <label><input type="radio"
+        name="radio-group-2" value="Значение2" />
+        3</label>
+      <label><input type="radio"
+        name="radio-group-2" value="Значение3" />
+        2</label>
+      <label><input type="radio"
+        name="radio-group-2" value="Значение4" />
+        1</label><br />
+
+    Сверхспособности: <br /><label>
+           
+            <select multiple name="field-name-3[]">
+              <option value="Значение1">Бессмертие</option>
+              <option value="Значение2">Прохождение сквозь стены</option>
+              <option value="Значение3">Левитация</option>
+            </select>
+          </label><br />
+
+    <label>
+    Биография:<br />
+    <textarea name="field-name-2">...</textarea>
+    </label><br />
+      
+      
+    С контрактом ознакомлен (а):<br />
+    <label><input type="checkbox" checked="checked"
+      name="check-1" />
+      Да</label><br />
+
+    Отправить:
+    <input type="submit" value="Отправить" /></form></div>
+    
+      <div class="col-12 order-md-1 p-0 m-0"> 
+      <table border="2">
+        <h3 id = "head2">Таблица</h3>
+        <tr bgcolor="#008080"><th>Колонка 1</th><th>Колонка 2</th><th>Колонка 3</th></tr>
+        <tr><td colspan="2">11</td><td>12</td></tr>
+        <tr bgcolor="#008080"><td>21</td><td>22</td><td>23</td></tr>
+        <tr><td>31</td><td>32</td><td>33</td></tr>
+        <tr bgcolor="#008080"><td rowspan="2">41</td><td>42</td><td>43</td></tr>
+        <tr><td>52</td><td>53</td></tr>
+     </table></div>
+    </div></div>
+ 
+
+
+       <div1 id="footer">
+        &copy; Снигирева Татьяна
+       </div1>
+</body>
+</html>
