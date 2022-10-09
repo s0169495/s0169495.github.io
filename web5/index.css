@@ -1,0 +1,80 @@
+@media (max-width: 768px) {
+ 
+    .flex-name{
+        display: flex; 
+        font-size: 250%;
+    } 
+    .menu{
+        font-size: 300%;
+        display: column; 
+    }
+    .container{
+        font-size: 50%;
+    }
+    h1, h2, h3, h4{
+       color: #008080;
+       font-family: sans-serif;
+       font-size: 250%;
+       font-weight: lighter;
+    }
+    header {
+       color: #008080;
+       font-family: sans-serif;
+       font-size: 300%;
+       margin-left: 5px;
+    } 
+    .div1{
+        margin-left: 5px;
+    }
+    body{
+        background-color: #AFEEEE;
+       } 
+    h1, ol, h3, form, table, h4, form1{ 
+        font-size: 240%;
+    }
+    table {
+        border: 3px solid grey;
+    }
+  
+  }
+  
+  
+  @media (min-width: 769px){
+
+    
+      .flex-name{
+        display: flex;
+        font-size: 150%;
+      } 
+
+      .menu{
+        font-size: 300%;
+        display: flex; 
+    }
+   
+      h1, 
+      h2, h3, h4 {
+      color: #008080;
+      font-family: sans-serif;
+      font-size: 250%;
+      font-weight: lighter;
+      }
+      header {
+      color: #008080;
+      font-family: sans-serif;
+      font-size: 300%;
+      margin-left: 600px;
+      } 
+      div1{
+          margin-left: 5px;
+      }
+      body{
+          background-color: #AFEEEE;
+         } 
+         h1, ol, h3, form, table, h4, form1{ 
+            font-size: 200%;
+        }
+      table {
+          border: 3px solid grey;
+      }
+      }
