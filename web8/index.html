@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Задание</title>
+</head>
+<body>
+    <header>
+        <link rel="stylesheet" href="index.css">
+       <script scr="bootstrap/3.3.5/css/bootstrap.min.css"></script>
+       <script scr="cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+       <script scr="maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+       <meta http-equiv="content-type" content="text/html; charset=utf-8" />      
+       <script type="text/javascript" src="/js/jquery-1.9.0.min.js"></script>
+       <script type="text/javascript" src="/js/script.js"></script>       
+       <script scr="main.js"></script>
+    </header>
+
+
+
+<!-- HTML модального окна -->
+<div id="openModal" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Форма</h3>
+          <a href="#close" title="Close" class="close">×</a>
+        </div>
+        <div class="modal-body">    
+          <ul>
+             
+   <form>
+    <label>
+        Имя:<br />
+        <input name="field-name"
+               placeholder="Введите ваше имя" />
+    </label><br />
+
+    <label>
+        email:<br />
+        <input name="field-email"
+               type="email"
+               placeholder="Введите вашу почту" />
+    </label><br />
+
+    <label>
+        Сообщение:<br />
+        <input name="field-text"
+               placeholder="Введите сообщение" />
+    </label><br />
+
+    Согласен/на с политикой обработки персональных данных:<br />
+    <label>
+        <input type="checkbox" checked="checked"
+               name="check-1" />
+        Да
+    </label><br />
+
+    Отправить:
+    <input type="submit" value="Отправить" />
+</form>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+  <a href="#openModal">Открыть форму</a>
+
+
+
+</body>
+</html>
