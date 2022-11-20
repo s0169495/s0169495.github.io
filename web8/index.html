@@ -3,7 +3,35 @@
 <html lang="ru">
 <head>
     <title>Задание</title>
+    <script src="https://cdn.jsdelivr.net/npm/slapform@latest/dist/index.min.js"></script>
+
 </head>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+$(function(){
+    $(".ajaxForm").submit(function(e){
+        e.preventDefault();
+        var href = $(this).attr("action");
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: href,
+            data: $(this).serialize(),
+            success: function(response){
+                if(response.status == "success"){
+                    alert("We received your submission, thank you!");
+                }else{
+                    alert("An error occured: " + response.message);
+                }
+            }
+        });
+    });
+});
+</script>
+
+
 <body>
     <header>
         <link rel="stylesheet" href="index.css">
@@ -29,7 +57,7 @@
         <div class="modal-body">    
           <ul>
              
-   <form>
+            <form class="ajaxForm" action="https://formcarry.com/s/H4xL8L8N4" accept-charset="UTF-8">
     <label>
         Имя:<br />
         <input name="field-name"
@@ -66,6 +94,8 @@
   </div>
   
 
+
+ 
 
   <a href="#openModal">Открыть форму</a>
 
