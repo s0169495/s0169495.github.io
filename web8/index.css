@@ -117,3 +117,12 @@
 	padding: 15px;
 	overflow: auto;
 }
+
+
+input[name="send"] {
+	display: none;
+  }
+  
+  input[name="send-enabled"]:checked~input[name="send"] {
+	display: inline-block;
+  }
