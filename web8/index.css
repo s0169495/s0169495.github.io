@@ -123,6 +123,6 @@ input[name="send"] {
 	display: none;
   }
   
-  input[name="send-enabled"]:checked~input[name="send"] {
+input[name="send-enabled"]:checked~input[name="send"] {
 	display: inline-block;
   }
