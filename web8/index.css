@@ -1,28 +1,27 @@
 
-/* Стили всплывающего окна по-умолчанию */
 .modal {
-	position: fixed; /* фиксированное положение */
+	position: fixed; 
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: rgba(0,0,0,0.5); /* фон */
+	background: rgba(0,0,0,0.5); 
 	z-index: 1050;
-	opacity: 0; /* по умолчанию модальное окно прозрачно */
+	opacity: 0; 
 	-webkit-transition: opacity 200ms ease-in; 
 	-moz-transition: opacity 200ms ease-in;
-	transition: opacity 200ms ease-in; /* анимация перехода */
-	pointer-events: none; /* элемент невидим для событий мыши */
+	transition: opacity 200ms ease-in; 
+	pointer-events: none; 
 	margin: 0;
 	padding: 0;
 }
-/* При отображении модального окно */
+
 .modal:target {
-	opacity: 1; /* делаем окно видимым */
-	  pointer-events: auto; /* элемент видим для событий мыши */
-	overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
+	opacity: 1;
+	  pointer-events: auto;
+	overflow-y: auto;
 }
-/* ширина модального окна и его отступы от экрана */
+
 .modal-dialog {
     position: relative;
     margin: auto;
@@ -32,14 +31,13 @@
 @media (max-width: 768px) {
   .modal-dialog {
 	  max-width: 500px;
-	  margin: 0px auto; /* отображение окна по центру */
+	  margin: 0px auto;
 	  padding: 0px;
   }
   .modal-content {
 	font-size: 300%;
 }
-}
-/* Стили для блока с контентом окна */ 
+} 
 .modal-content {
 	position: relative;
 	display: -webkit-box;
@@ -64,7 +62,7 @@
 	  box-shadow: 0 5px 15px rgba(0,0,0,.5);
   }
 }
-/* Стили заголовка окна */
+
 .modal-header {
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -88,7 +86,7 @@
 	font-size: 1.25rem;
 	font-weight: 500;
 }
-/* Стили кнопки "х" ("Закрыть")  */
+
 .close {
 	float: right;
 	font-family: sans-serif;
@@ -100,14 +98,14 @@
 	opacity: .5;
 	text-decoration: none;
 }
-/* Стили для закрывающей кнопки в фокусе или наведении */
+
 .close:focus, .close:hover {
 	color: #000;
 	text-decoration: none;
 	cursor: pointer;
 	opacity: .75;
 }
-/* Стили блока основного содержимого окна */
+
 .modal-body {
   position: relative;
 	-webkit-box-flex: 1;
