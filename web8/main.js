@@ -34,7 +34,6 @@ window.onload = function(){
     persistInput(b);
     var c = document.getElementById("text");
     persistInput(c);
-    var d = document.getElementById("ch");
-    persistInput(d);
+
 
 }
