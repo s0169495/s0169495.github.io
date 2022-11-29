@@ -16,6 +16,13 @@ document.addEventListener("DOMContentLoaded", function() {
 */
 
 
+function goBack() {
+    window.history.back()
+}
+
+
+
+
 function persistInput(input)
 {
   var key = "input-" + input.id;
