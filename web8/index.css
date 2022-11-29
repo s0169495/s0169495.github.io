@@ -87,24 +87,6 @@
 	font-weight: 500;
 }
 
-.close {
-	float: right;
-	font-family: sans-serif;
-	font-size: 24px;
-	font-weight: 700;
-	line-height: 1;
-	color: #000;
-	text-shadow: 0 1px 0 #fff;
-	opacity: .5;
-	text-decoration: none;
-}
-
-.close:focus, .close:hover {
-	color: #000;
-	text-decoration: none;
-	cursor: pointer;
-	opacity: .75;
-}
 
 .modal-body {
   position: relative;
