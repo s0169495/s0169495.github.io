@@ -49,19 +49,19 @@ $(function(){
     <label>
         Имя:<br />
         <input name="field-name" id="name"
-               placeholder="Введите ваше имя" />
+               placeholder="Введите ваше имя" required minlength="1"/>
     </label><br />
 
     <label>
         email:<br />
-        <input name="field-email" id="post"
+        <input name="field-email" id="post" required minlength="5"
                type="email"
                placeholder="Введите вашу почту" />
     </label><br />
 
     <label>
         Сообщение:<br />
-        <input name="field-text" id="text"
+        <input name="field-text" id="text" required minlength="1"
                placeholder="Введите сообщение" />
     </label><br />
 
