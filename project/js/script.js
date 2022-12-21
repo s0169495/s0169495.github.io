@@ -11,7 +11,12 @@ $(document).ready(function () {
       slidesToShow: 1,
       fade: true,
   });
-});
+
+});$(".reviewSlide").on("afterChange", function() {
+      let dataId = parseInt($(".slick-current").attr("data-slick-index"));    
+      console.log(dataId);
+      $(".current").html("0"+(dataId+=1))
+  });
 
 function showDropdown(navbarDropdown, list){
   $(navbarDropdown).addClass("show");
