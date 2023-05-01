@@ -2,11 +2,6 @@
 
 header('Content-Type: text/html; charset=UTF-8');
 
-function goBack(){
-    header('Location: index.php');
-    exit();
-}
-
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     $messages = array();
