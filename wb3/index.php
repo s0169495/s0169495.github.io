@@ -67,17 +67,16 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
         $id = $db->lastInsertId();
         $db->commit();
 
-        for ($i = 0; $i<$n; $i++){
-
-    
+       for ($i = 0; $i<$n; $i++){
+            $q = $db->prepare("SELECT id_cap FROM cap WHERE capability=:cap");
+            $q->bindParam(':cap', $userAb[$i]);
+            $q->execute();
+            $cp = $q->fetchAll(PDO::FETCH_ASSOC);
+            $id_cap=$cp[0]['id_cap'];
         $stmt_2 = $db->prepare("INSERT INTO capapp (id, id_cap) VALUES (:id, :id_cap)");
         $stmt_2->bindParam(':id', $id);
-        $stmt_2->bindParam(':id_cap', $userAb[$i]);
-
-        $db->beginTransaction();
+        $stmt_2->bindParam(':id_cap', $id_cap);
         $stmt_2->execute();
-        $db->commit();
-
         }
     } catch (PDOException $e) {
         print('Error : ' . $e->getMessage());
