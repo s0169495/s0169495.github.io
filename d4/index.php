@@ -90,12 +90,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         for ($i = 0; $i < $n; $i++) {
             $userAb[$i] = $_POST['field-name-3'][$i];
     }
-        for ($i = 0; $i < $n; $i++) {
-            if ($userAb[$i] == 0) {$Ab0=1;  setcookie('userAb0', 1, time() + 365 * 24 * 60 * 60);}
-            else if ($userAb[$i] == 1)  {$Ab1=1;  setcookie('userAb1', 1, time() + 365 * 24 * 60 * 60);}
+         for ($i = 0; $i < $n; $i++) {
+            if ($userAb[$i] == 'immortality') {$Ab0=1;  setcookie('userAb0', 1, time() + 365 * 24 * 60 * 60);}
+            else if ($userAb[$i] == 'levitation')  {$Ab1=1;  setcookie('userAb1', 1, time() + 365 * 24 * 60 * 60);}
             else {$Ab2=1;  setcookie('userAb2', 1, time() + 365 * 24 * 60 * 60);}
     }
-
 
     if($errors){
         header('Location: index.php');
