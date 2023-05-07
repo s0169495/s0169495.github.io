@@ -98,9 +98,9 @@ if(!empty($messages)){
         Сверхспособности:<label>
             <br />
             <select multiple name="field-name-3[]">
-            <option value=0 <?php if($values['Ab0'] == 1){print 'selected';}?>>Бессмертие</option>
-                <option value=1 <?php if($values['Ab1'] == 1){print 'selected';}?>>Прохождение сквозь стены</option>
-                <option value=2 <?php if($values['Ab2'] == 1){print 'selected';}?>>Левитация</option>
+            <option value='immortality' <?php if($values['Ab0'] == 1){print 'selected';}?>>Бессмертие</option>
+                <option value='levitation' <?php if($values['Ab1'] == 1){print 'selected';}?>>Прохождение сквозь стены</option>
+                <option value='passing through walls' <?php if($values['Ab2'] == 1){print 'selected';}?>>Левитация</option>
             </select>
         </label><br />
 
