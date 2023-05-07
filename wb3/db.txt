@@ -24,6 +24,6 @@ VALUES ('passing through walls', 2);
 
 
 CREATE TABLE capapp(
-  id int(10) NOT NULL DEFAULT '0',
-  id_cap varchar(128) NOT NULL DEFAULT ''
+  id int FOREIGN KEY REFERENCES app(id),
+  id_cap int FOREIGN KEY REFERENCES cap(id_cap)
 );
