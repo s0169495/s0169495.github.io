@@ -62,11 +62,9 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
         $stmt_1->bindParam(':gender', $userGender);
         $stmt_1->bindParam(':kol', $userLimbs);
         $stmt_1->bindParam(':bio', $userBio);
-        $db->beginTransaction();
         $stmt_1->execute();
         $id = $db->lastInsertId();
-        $db->commit();
-
+     
        for ($i = 0; $i<$n; $i++){
             $q = $db->prepare("SELECT id_cap FROM cap WHERE capability=:cap");
             $q->bindParam(':cap', $userAb[$i]);
