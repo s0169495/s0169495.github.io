@@ -5,11 +5,6 @@ header('Content-Type: text/html; charset=UTF-8');
 $user = 'u53720';
 $pass = '8531034';
 
-function goBack(){
-    header('Location: index.php');
-    exit();
-}
-
 function generateUniqueLogin(){
     $user = 'u53720';
     $pass = '8531034';
