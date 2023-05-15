@@ -90,10 +90,19 @@ else {
         $user = 'u53720';
         $pass = '8531034';
         $db = new PDO('mysql:host=localhost;dbname=u53720', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
-        $check_login = $db->prepare("SELECT * FROM log WHERE login=:login");
+        $check_login = $db->prepare("SELECT * FROM logpass WHERE login=:login");
         $check_login->bindParam(':login', $_POST['login']);
         $check_login->execute();
         $all = $check_login->fetchAll(PDO::FETCH_ASSOC);
+
+    /*    $p = $db->prepare("SELECT pass FROM logpass WHERE login=:login");
+        $p->bindParam(':login', $_POST['login']);
+        $p->execute();     
+        $p1 = $p->fetchAll(PDO::FETCH_ASSOC);*/
+
+
+        
+       
     }catch (PDOException $e) {
         print('Error : ' . $e->getMessage());
         exit();
@@ -104,8 +113,11 @@ else {
         header('Location: login.php');
         exit();
     } else {
-        $password = $all[0]['password'];
-        if($password != $_POST['password'].md5('Ui4N9c')){
+        $password = $all[0]['pass'];
+      //  $password1 = $p1[0][0];    if($password != $_POST['password'].md5('Ui4N9c'))
+       // setcookie('pass', $password, time() + 300*24*60*60);
+       // setcookie('pass1', $password1, time() + 300*24*60*60);
+        if($password != $_POST['password']){
             setcookie('pass_err', '21', time() + 24*60*60);
             header('Location: login.php');
             exit();
@@ -115,7 +127,7 @@ else {
             $_SESSION['login'] = $_POST['login'];
             try {
                 $db = new PDO('mysql:host=localhost;dbname=u53720', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
-                $get_id = $db->prepare("SELECT id FROM log WHERE login=:login");
+                $get_id = $db->prepare("SELECT id FROM logpass WHERE login=:login");
                 $get_id->bindParam(':login', $_SESSION['login']);
                 $get_id->execute();
                 $_SESSION['uid'] = $get_id->fetchColumn();
@@ -130,3 +142,4 @@ else {
     exit();
 
 }
+
