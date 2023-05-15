@@ -5,13 +5,6 @@ header('Content-Type: text/html; charset=UTF-8');
 $user = 'u53720';
 $pass = '8531034';
 
-function okLetsGo($errors, $error_type, $i){
-    if($i<12) {
-        return !$errors[$error_type[$i]] && okLetsGo($errors, $error_type, $i + 1);
-    }
-    else return !$errors[$error_type[$i]];
-}
-
 function goBack(){
     header('Location: index.php');
     exit();
