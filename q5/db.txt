@@ -24,12 +24,14 @@ VALUES ('passing through walls', 2);
 
 
 CREATE TABLE capapp(
-  id int REFERENCES app(id),
-  id_cap int REFERENCES cap(id_cap)
+  id int(10) NOT NULL DEFAULT '0',
+  id_cap int(10) NOT NULL DEFAULT '0',
+  FOREIGN KEY (id)  REFERENCES app (id),
+  FOREIGN KEY (id_cap)  REFERENCES cap (id_cap)
 );
-
 
 CREATE TABLE log(
   id int REFERENCES app(id),
-  login varchar(256) NOT NULL DEFAULT ''
+  login varchar(256) NOT NULL DEFAULT '',
+  FOREIGN KEY (id)  REFERENCES app (id)
 );
