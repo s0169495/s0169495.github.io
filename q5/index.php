@@ -169,11 +169,15 @@ else{
         for ($i = 0; $i < $n; $i++) {
             $userAb[$i] = $_POST['field-name-3'][$i];
     }
+        $Ab0=0; $Ab1=0; $Ab2=0;
         for ($i = 0; $i < $n; $i++) {
-            if ($userAb[$i] == 0) {$Ab0=1;  setcookie('userAb0', 1, time() + 365 * 24 * 60 * 60);}
-            else if ($userAb[$i] == 1)  {$Ab1=1;  setcookie('userAb1', 1, time() + 365 * 24 * 60 * 60);}
-            else {$Ab2=1;  setcookie('userAb2', 1, time() + 365 * 24 * 60 * 60);}
+            if ($userAb[$i] == 'immortality') {$Ab0=1;}
+            else if ($userAb[$i] == 'levitation')  {$Ab1=1;}
+            else {$Ab2=1;}
     }
+    setcookie('userAb0', $Ab0, time() + 365 * 24 * 60 * 60);
+    setcookie('userAb1', $Ab1, time() + 365 * 24 * 60 * 60);
+    setcookie('userAb2', $Ab2, time() + 365 * 24 * 60 * 60);
 
 
     if($errors){
