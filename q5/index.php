@@ -5,12 +5,12 @@ header('Content-Type: text/html; charset=UTF-8');
 $user = 'u53720';
 $pass = '8531034';
 
-/*function okLetsGo($errors, $error_type, $i){
+function okLetsGo($errors, $error_type, $i){
     if($i<12) {
         return !$errors[$error_type[$i]] && okLetsGo($errors, $error_type, $i + 1);
     }
     else return !$errors[$error_type[$i]];
-}*/
+}
 
 function goBack(){
     header('Location: index.php');
@@ -23,7 +23,7 @@ function generateUniqueLogin(){
     $login = uniqid();
     try {
         $db = new PDO('mysql:host=localhost;dbname=u53720', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
-        $stmt = $db->prepare("SELECT login FROM log WHERE login=(:login)");
+        $stmt = $db->prepare("SELECT login FROM logpass WHERE login=(:login)");
         $stmt->bindParam(':login', $login);
         $stmt->execute();
         while($stmt->fetchColumn() == $login){
@@ -46,7 +46,7 @@ function getId($login){
     $user = 'u53720';
     $pass = '8531034';
     $db = new PDO('mysql:host=localhost;dbname=u53720', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
-    $get_id = $db->prepare("SELECT id FROM log WHERE login=:login");
+    $get_id = $db->prepare("SELECT id FROM logpass WHERE login=:login");
     $get_id->bindParam(':login', $login);
     $get_id->execute();
     return $get_id->fetchColumn();
@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $messages[] = '<div style="color:#191970;">Спасибо, результаты сохранены. </div>';
 
         if (!empty($_COOKIE['pass'])) {
-            $messages[] = sprintf('<div style="color:#191970;">Вы можете <a href="login.php">войти</a> с логином <strong>%s</strong>и паролем <strong>%s</strong> для изменения данных.</div>', strip_tags($_COOKIE['login']), strip_tags($_COOKIE['pass']));
+            $messages[] = sprintf('<div style="color:#191970;">Вы можете <a href="login.php">войти</a> с логином <strong>%s</strong> и паролем <strong>%s</strong> для изменения данных.</div>', strip_tags($_COOKIE['login']), strip_tags($_COOKIE['pass']));
         }
     }
 
@@ -203,11 +203,11 @@ else{
     session_start() && !empty($_SESSION['login'])) {
     try {
         $id = getId($_SESSION['login']);
-        $db = new PDO('mysql:host=localhost;dbname=u47553', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
+        $db = new PDO('mysql:host=localhost;dbname=u53720', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
         $stmt_1 = $db->prepare("UPDATE app SET name=:name, email=:email, yearper=:yearper, gender=:gender, kol=:kol, bio=:bio WHERE id=:id");
         $stmt_1->bindParam(':name', $userName);
         $stmt_1->bindParam(':email', $userEmail);
-        $stmt_1->bindParam(':yearper', $userBirthdate);
+        $stmt_1->bindParam(':yearper', $userDate);
         $stmt_1->bindParam(':gender', $userGender);
         $stmt_1->bindParam(':kol', $userLimbs);
         $stmt_1->bindParam(':bio', $userBio);
@@ -236,7 +236,7 @@ else{
     } catch (PDOException $e) {
         print('Error : ' . $e->getMessage());
         exit();
-    }
+    }}
     else {
         $login = generateUniqueLogin();
         $password = uniqid();
@@ -267,6 +267,14 @@ else{
         $stmt_2->execute();
 
         }
+
+        $stmt_3 = $db->prepare("INSERT INTO logpass (id, login, pass) VALUES (:id, :login, :password)");
+        $stmt_3->bindParam(':id', $id);
+        $stmt_3->bindParam(':login', $login);
+        $stmt_3->bindParam(':password', $password);
+       // $db->beginTransaction();
+        $stmt_3->execute();
+       // $db->commit();
     } catch (PDOException $e) {
         print('Error : ' . $e->getMessage());
         exit();
