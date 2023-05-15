@@ -250,23 +250,23 @@ else{
         $stmt_1->execute();
         $id = $db->lastInsertId();
 
-        for ($i = 0; $i<$n; $i++){
-
-    
+         for ($i = 0; $i<$n; $i++){
+            $q = $db->prepare("SELECT id_cap FROM cap WHERE capability=:cap");
+            $q->bindParam(':cap', $userAb[$i]);
+            $q->execute();
+            $cp = $q->fetchAll(PDO::FETCH_ASSOC);
+            $id_cap=$cp[0]['id_cap'];
         $stmt_2 = $db->prepare("INSERT INTO capapp (id, id_cap) VALUES (:id, :id_cap)");
         $stmt_2->bindParam(':id', $id);
-        $stmt_2->bindParam(':id_cap', $userAb[$i]);
+        $stmt_2->bindParam(':id_cap', $id_cap);
         $stmt_2->execute();
-
         }
 
         $stmt_3 = $db->prepare("INSERT INTO logpass (id, login, pass) VALUES (:id, :login, :password)");
         $stmt_3->bindParam(':id', $id);
         $stmt_3->bindParam(':login', $login);
         $stmt_3->bindParam(':password', $password);
-       // $db->beginTransaction();
         $stmt_3->execute();
-       // $db->commit();
     } catch (PDOException $e) {
         print('Error : ' . $e->getMessage());
         exit();
