@@ -30,8 +30,9 @@ CREATE TABLE capapp(
   FOREIGN KEY (id_cap)  REFERENCES cap (id_cap)
 );
 
-CREATE TABLE log(
-  id int REFERENCES app(id),
+CREATE TABLE logpass(
+  id int(10) NOT NULL DEFAULT '0',
   login varchar(256) NOT NULL DEFAULT '',
+  pass varchar(256) NOT NULL DEFAULT '',
   FOREIGN KEY (id)  REFERENCES app (id)
 );
