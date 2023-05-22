@@ -29,7 +29,7 @@ if(!empty($messages)){
     <form action="index.php" method="POST">
 
 
-
+<a href="./login.php">Форма авторизации</a>
         <b><a>Форма</a></b></br></br>
         <label <?php if ( $errors['userName'] || $errors['userName_wrong']) {print 'class="error"' ; } ?>>
             Имя:<br />
