@@ -204,18 +204,10 @@ else{
         $stmt_1->bindParam(':kol', $userLimbs);
         $stmt_1->bindParam(':bio', $userBio);
         $stmt_1->bindParam(':id', $id);
-       // $db->beginTransaction();
+     
         $stmt_1->execute();
-      //  $db->commit();
-
-        $stmt_2 = $db->prepare("UPDATE capapp SET god=:god, noclip=:noclip, levitation=:levitation WHERE id=:id");
-        $stmt_2->bindParam(':id', $id);
-        $stmt_2->bindParam(':god', $userAb[0]);
-        $stmt_2->bindParam(':noclip', $userAb[1]);
-        $stmt_2->bindParam(':levitation', $userAb[2]);
-      //  $db->beginTransaction();
-        $stmt_2->execute();
-     //   $db->commit();
+      
+       
 
      for ($i = 0; $i<$n; $i++){
 
