@@ -38,6 +38,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <html lang="ru">
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <title>Login into Ex5</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
     <?php
@@ -45,25 +50,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         print($msg);
     }
     ?>
+    <div class="container-fluid">
+        <div class="row d-flex">
+            <div class="col-sm-8 col-md-4 mx-auto bg-dark">
                 <form id="loginForm" action="" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                    <div class="form-row text-light">
+                        <div class="col pt-1">
                             <div>
                                 Логин:
                             </div>
                             <label>
-                                <input class="form-control" type="text" name="login" placeholder="Логин" autocomplete="off">
+                                <input class="form-control form-control-md info" type="text" name="login" placeholder="Логин" autocomplete="off">
                             </label><br/>
-                    </div></br>
+                        </div>
+                        <div class="col pt-1">
                             <div>
                                 Пароль:
                             </div>
                             <label>
-                                <input class="form-control" type="text" name="password" placeholder="Пароль" autocomplete="off">
+                                <input class="form-control form-control-md info" type="text" name="password" placeholder="Пароль" autocomplete="off">
                             </label><br/>
                         </div>
-                        <div>
+                        <div class="col mt-3 pb-3">
                             <input class="btn btn-danger btn-lg" type="submit" id="submitLoginButton" value="Войти">
                         </div>
+                    </div>
                 </form>
+            </div>
+        </div>
+    </div>
     </body>
 
     <?php
@@ -80,6 +95,14 @@ else {
         $check_login->execute();
         $all = $check_login->fetchAll(PDO::FETCH_ASSOC);
 
+    /*    $p = $db->prepare("SELECT pass FROM logpass WHERE login=:login");
+        $p->bindParam(':login', $_POST['login']);
+        $p->execute();     
+        $p1 = $p->fetchAll(PDO::FETCH_ASSOC);*/
+
+
+        
+       
     }catch (PDOException $e) {
         print('Error : ' . $e->getMessage());
         exit();
@@ -91,6 +114,9 @@ else {
         exit();
     } else {
         $password = $all[0]['pass'];
+      //  $password1 = $p1[0][0];    if($password != $_POST['password'].md5('Ui4N9c'))
+       // setcookie('pass', $password, time() + 300*24*60*60);
+       // setcookie('pass1', $password1, time() + 300*24*60*60);
         if($password != $_POST['password']){
             setcookie('pass_err', '21', time() + 24*60*60);
             header('Location: login.php');
