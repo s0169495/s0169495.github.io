@@ -1,16 +1,5 @@
 
-<head>
-    <title>Задание 6</title>
-    <link rel="stylesheet" href="styleadmin.css">
-    <meta name="viewport" content="width=device-width initial-scale=1">
-</head>
-<body>
 <?php
-/**
- * Задача 6. Реализовать вход администратора с использованием
- * HTTP-авторизации для просмотра и удаления результатов.
- **/
-
  function authorize() {
     header('HTTP/1.1 401 Unanthorized');
     header('WWW-Authenticate: Basic realm="My site"');
@@ -18,9 +7,6 @@
     exit();
 }
 
-// Пример HTTP-аутентификации.
-// PHP хранит логин и пароль в суперглобальном массиве $_SERVER.
-// Подробнее см. стр. 26 и 99 в учебном пособии Веб-программирование и веб-сервисы.
 if (empty($_SERVER['PHP_AUTH_USER']) ||
     empty($_SERVER['PHP_AUTH_PW'])) {
   authorize();
@@ -65,34 +51,7 @@ if ($_SERVER['REQUEST_METHOD']=="GET") {
         $stmt = $db->prepare("SELECT * FROM logpass WHERE id=:id;");
         $stmtErr = $stmt->execute(['id' => $_GET['change']]);
         $logpass = $stmt->fetch();
-     /*   foreach ($abilities as $ability) {
-            $person[$ability['capability']] = 0;
-        }
-        /*
-        $person['Invincibility']=0;
-        $person['Noclip']=0;
-        $person['Levitation']=0;
-        */
-     /*   foreach ($personAbilities as $personAbility) {
-            foreach ($abilities as $ability) {
-                if ($ability['id_cap'] == $personAbility['id_cap']) {
-                    $person[$ability['capability']]=1;
-                    break;
-                }
-            }
-            /*
-            switch ($personAbility['a_id']) {
-                case 1:
-                    $person['Invincibility']=1;
-                    break;
-                case 3:
-                    $person['Noclip']=1;
-                    break;
-                case 2:
-                    $person['Levitation']=1;
-                    break;
-            }
-            */
+    
             $a=array();
             foreach ($abilities as $ability) {
                 $a[$ability['capability']] = 0;
@@ -190,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD']=="GET") {
 <?php
     exit();
     }
-    //print('Вы успешно авторизовались и видите защищенные паролем данные.');
+    
 
     $stmt = $db->prepare("SELECT * FROM app ORDER BY id;");
     $stmtErr = $stmt->execute();
@@ -249,26 +208,7 @@ if ($_SERVER['REQUEST_METHOD']=="GET") {
                 }
             }
         }
-       /* print ('<td>');
-     /*   foreach ($resultLog as $resultLog) {
-            if ($resultLog['id'] == $person['id']){
-                print ('<td>' . $resultLog['login'] . '</td>');
-                print ('<td>');
-                print ('<td>' . $resultLog['pass'] . '</td>');
-                print ('<td>');
-            }
-        }
-       /* print ('<td>');
-        print ('<td>' . $resultLog[$person['id']]['login'] . '</td>');
-        print ('<td>');
-        print ('<td>' . $resultLog[$person['id']]['pass'] . '</td>');
-        print ('<td>');*/
-    
-     //   foreach ($person1 as $key => $value) {
-      //      print('<td>' . $value . '</td>');
-         //   print('<td>' . $value . '</td>');
-      //  }
-
+      
         print ('<td><a href="./admin.php?delete=' . $person['id'] . '">Удалить данные</a></td>');
         print ('<td><a href="./admin.php?change=' . $person['id'] . '">Изменить данные</a></td>');
         print ('</tr>');
@@ -315,25 +255,6 @@ if ($_SERVER['REQUEST_METHOD']=="GET") {
                     break;
                 }
             }
-
-
-    
-            /*
-            switch ($item) {
-                case "Invincibility":
-                    $stmt = $db->prepare("INSERT INTO Person_Ability (p_id, a_id) VALUES (:p_id, :a_id);");
-                    $stmtErr = $stmt->execute(['p_id' => $_POST['uid'], 'a_id' => 1]);
-                    break;
-                case "Noclip":
-                    $stmt = $db->prepare("INSERT INTO Person_Ability (p_id, a_id) VALUES (:p_id, :a_id);");
-                    $stmtErr = $stmt->execute(['p_id' => $_POST['uid'], 'a_id' => 3]);
-                    break;
-                case "Levitation":
-                    $stmt = $db->prepare("INSERT INTO Person_Ability (p_id, a_id) VALUES (:p_id, :a_id);");
-                    $stmtErr = $stmt->execute(['p_id' => $_POST['uid'], 'a_id' => 2]);
-                    break;
-            }
-            */
             if (!$stmtErr) {
                 header("HTTP/1.1 500 Some server issue");
                 exit();
@@ -343,7 +264,6 @@ if ($_SERVER['REQUEST_METHOD']=="GET") {
     header('Location: admin.php');
 }
 
-/*?>
 
 
 
