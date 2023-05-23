@@ -95,7 +95,6 @@ else {
         $check_login->execute();
         $all = $check_login->fetchAll(PDO::FETCH_ASSOC);
 
-    /*    $p = $db->prepare("SELECT pass FROM logpass WHERE login=:login");
         $p->bindParam(':login', $_POST['login']);
         $p->execute();     
         $p1 = $p->fetchAll(PDO::FETCH_ASSOC);*/
@@ -114,9 +113,7 @@ else {
         exit();
     } else {
         $password = $all[0]['pass'];
-      //  $password1 = $p1[0][0];    if($password != $_POST['password'].md5('Ui4N9c'))
-       // setcookie('pass', $password, time() + 300*24*60*60);
-       // setcookie('pass1', $password1, time() + 300*24*60*60);
+     
         if($password != $_POST['password']){
             setcookie('pass_err', '21', time() + 24*60*60);
             header('Location: login.php');
