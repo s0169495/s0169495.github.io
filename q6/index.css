@@ -1,0 +1,70 @@
+
+@media screen and (max-width: 1100px) {
+    
+    .flex-name{
+        display: flex;
+        justify-content: center;
+        margin-top: -125px;
+        margin-bottom:  100px;
+    } 
+ 
+  
+    header {
+       color: #008080;
+       font-family: sans-serif;
+       font-size: 300%;
+       margin-left: 5px;
+    } 
+   
+    textarea, input, select{
+     width:100%;
+  }
+    
+    body{
+        background-color: #AFEEEE;
+       } 
+   form{ 
+        margin-left: 5px;
+        width:100%;
+        font-size: 230%;
+    }
+  }
+  
+  
+  @media screen and (min-width: 1101px){
+
+
+      .flex-name{
+        display: flex;
+        margin-left: 200px;
+        margin-top: -125px;
+        margin-bottom:  100px;
+      } 
+
+      header {
+      color: #008080;
+      font-family: sans-serif;
+      font-size: 300%;
+      margin-left: 600px;
+      } 
+  
+      body{
+          background-color: #AFEEEE;
+         } 
+      h3, form{ 
+          margin-left: 800px;
+      }
+    }
+
+
+
+
+
+
+input[name="send"] {
+	display: none;
+  }
+  
+input[name="send-enabled"]:checked~input[name="send"] {
+	display: inline-block;
+  }
