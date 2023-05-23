@@ -1,0 +1,45 @@
+CREATE TABLE app (
+  id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  name varchar(128) NOT NULL DEFAULT '',
+  email varchar(128) NOT NULL DEFAULT '',
+  yearper year(4) NOT NULL DEFAULT '0000',
+  gender tinyint(1) NOT NULL DEFAULT 0,
+  kol int(1) NOT NULL DEFAULT 0,
+  bio varchar(256) NOT NULL DEFAULT '',
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE cap (
+  capability varchar(128) NOT NULL DEFAULT '',
+  id_cap int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (id_cap)
+);
+
+INSERT INTO cap (capability, id_cap)
+VALUES ('immortality', 0);
+INSERT INTO cap (capability, id_cap)
+VALUES ('levitation', 1);
+INSERT INTO cap (capability, id_cap)
+VALUES ('passing through walls', 2);
+
+
+CREATE TABLE capapp(
+  id int(10) NOT NULL DEFAULT '0',
+  id_cap int(10) NOT NULL DEFAULT '0',
+  FOREIGN KEY (id)  REFERENCES app (id),
+  FOREIGN KEY (id_cap)  REFERENCES cap (id_cap)
+);
+
+CREATE TABLE logpass(
+  id int(10) NOT NULL DEFAULT '0',
+  login varchar(256) NOT NULL DEFAULT '',
+  pass varchar(256) NOT NULL DEFAULT '',
+  FOREIGN KEY (id)  REFERENCES app (id)
+);
+
+CREATE TABLE admin (
+    login char(5) NOT NULL,
+    pass char(32) NOT NULL
+);
+
+INSERT INTO admin (login, pass) VALUES ('admin','123');
