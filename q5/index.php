@@ -5,18 +5,6 @@ header('Content-Type: text/html; charset=UTF-8');
 $user = 'u53720';
 $pass = '8531034';
 
-function okLetsGo($errors, $error_type, $i){
-    if($i<12) {
-        return !$errors[$error_type[$i]] && okLetsGo($errors, $error_type, $i + 1);
-    }
-    else return !$errors[$error_type[$i]];
-}
-
-function goBack(){
-    header('Location: index.php');
-    exit();
-}
-
 function generateUniqueLogin(){
     $user = 'u53720';
     $pass = '8531034';
@@ -136,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $c = $get_d->fetch();
             if($c=='immortality') $values['Ab0']=1;
             else if($c=='levitation') $values['Ab1']=1;
-            else $values['Ab0']=1;
+            else $values['Ab2']=1;
         }
         print('<div style="color:#191970;">');
         printf('Вход с логином %s, uid %d', $_SESSION['login'], $_SESSION['uid']);
@@ -268,22 +256,24 @@ else{
         $id = $db->lastInsertId();
 
         for ($i = 0; $i<$n; $i++){
-
-    
+            $q = $db->prepare("SELECT id_cap FROM cap WHERE capability=:cap");
+            $q->bindParam(':cap', $userAb[$i]);
+            $q->execute();
+            $cp = $q->fetchAll(PDO::FETCH_ASSOC);
+            $id_cap=$cp[0]['id_cap'];
         $stmt_2 = $db->prepare("INSERT INTO capapp (id, id_cap) VALUES (:id, :id_cap)");
         $stmt_2->bindParam(':id', $id);
-        $stmt_2->bindParam(':id_cap', $userAb[$i]);
+        $stmt_2->bindParam(':id_cap', $id_cap);
         $stmt_2->execute();
-
         }
-
+        
         $stmt_3 = $db->prepare("INSERT INTO logpass (id, login, pass) VALUES (:id, :login, :password)");
         $stmt_3->bindParam(':id', $id);
         $stmt_3->bindParam(':login', $login);
         $stmt_3->bindParam(':password', $password);
-       // $db->beginTransaction();
+ 
         $stmt_3->execute();
-       // $db->commit();
+ 
     } catch (PDOException $e) {
         print('Error : ' . $e->getMessage());
         exit();
