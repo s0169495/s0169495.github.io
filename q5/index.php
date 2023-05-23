@@ -5,6 +5,18 @@ header('Content-Type: text/html; charset=UTF-8');
 $user = 'u53720';
 $pass = '8531034';
 
+function okLetsGo($errors, $error_type, $i){
+    if($i<12) {
+        return !$errors[$error_type[$i]] && okLetsGo($errors, $error_type, $i + 1);
+    }
+    else return !$errors[$error_type[$i]];
+}
+
+function goBack(){
+    header('Location: index.php');
+    exit();
+}
+
 function generateUniqueLogin(){
     $user = 'u53720';
     $pass = '8531034';
@@ -114,11 +126,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $values['userEmail'] = filter_var($data[0]['email'], FILTER_SANITIZE_SPECIAL_CHARS);
         $values['userDate'] = $data[0]['date'];
         $values['userGender'] = $data[0]['gender'];
-        $values['userLimbs'] = $data[0]['limbs'];
+        $values['userLimbs'] = $data[0]['kol'];
         $values['userBio'] = filter_var($data[0]['bio'], FILTER_SANITIZE_SPECIAL_CHARS);
-        $values['userAb0'] = $data_ab[0]['immortality'];
-        $values['userAb1'] = $data_ab[0]['levitation'];
-        $values['userAb2'] = $data_ab[0]['passing through walls'];
+        for ($i=0; $i<sizeof($data_ab); $i+=1){
+            $db = new PDO('mysql:host=localhost;dbname=u53720', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
+            $get_d = $db->prepare("SELECT capability FROM cap WHERE id_cap=:id_cap");
+            $get_d->bindParam(':id_cap' , $data_ab[$i]);
+            $get_d->execute();
+            $c = $get_d->fetch();
+            if($c=='immortality') $values['Ab0']=1;
+            else if($c=='levitation') $values['Ab1']=1;
+            else $values['Ab0']=1;
+        }
         print('<div style="color:#191970;">');
         printf('Вход с логином %s, uid %d', $_SESSION['login'], $_SESSION['uid']);
         print('</div>');
@@ -169,7 +188,7 @@ else{
         for ($i = 0; $i < $n; $i++) {
             $userAb[$i] = $_POST['field-name-3'][$i];
     }
-        $Ab0=0; $Ab1=0; $Ab2=0;
+       $Ab0=0; $Ab1=0; $Ab2=0;
         for ($i = 0; $i < $n; $i++) {
             if ($userAb[$i] == 'immortality') {$Ab0=1;}
             else if ($userAb[$i] == 'levitation')  {$Ab1=1;}
@@ -206,8 +225,14 @@ else{
         $stmt_1->bindParam(':id', $id);
      
         $stmt_1->execute();
-      
-       
+     
+        for ($i = 0; $i<$n; $i++){
+
+            $stmt_2 = $db->prepare("DELETE from capapp WHERE id=:id");
+            $stmt_2->bindParam(':id', $id);
+            $stmt_2->execute();
+    
+            }
 
      for ($i = 0; $i<$n; $i++){
 
@@ -242,23 +267,23 @@ else{
         $stmt_1->execute();
         $id = $db->lastInsertId();
 
-         for ($i = 0; $i<$n; $i++){
-            $q = $db->prepare("SELECT id_cap FROM cap WHERE capability=:cap");
-            $q->bindParam(':cap', $userAb[$i]);
-            $q->execute();
-            $cp = $q->fetchAll(PDO::FETCH_ASSOC);
-            $id_cap=$cp[0]['id_cap'];
+        for ($i = 0; $i<$n; $i++){
+
+    
         $stmt_2 = $db->prepare("INSERT INTO capapp (id, id_cap) VALUES (:id, :id_cap)");
         $stmt_2->bindParam(':id', $id);
-        $stmt_2->bindParam(':id_cap', $id_cap);
+        $stmt_2->bindParam(':id_cap', $userAb[$i]);
         $stmt_2->execute();
+
         }
 
         $stmt_3 = $db->prepare("INSERT INTO logpass (id, login, pass) VALUES (:id, :login, :password)");
         $stmt_3->bindParam(':id', $id);
         $stmt_3->bindParam(':login', $login);
         $stmt_3->bindParam(':password', $password);
+       // $db->beginTransaction();
         $stmt_3->execute();
+       // $db->commit();
     } catch (PDOException $e) {
         print('Error : ' . $e->getMessage());
         exit();
